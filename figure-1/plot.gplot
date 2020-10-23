@@ -1,8 +1,9 @@
-# Set the output to an svg file
-set terminal svg
-set output 'result.svg'
+# Simply...
 
-# Clamp the x axis to show only the desired range
+# clamp the x axis to show only the desired range...
 set xrange [0:4*pi]
 
+# and plot the function!
 plot sin(x)
+
+# Pretty straightforward, huh?
