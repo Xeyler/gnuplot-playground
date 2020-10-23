@@ -1,0 +1,15 @@
+# Our source file includes a space in the datetime records, so we need to
+# declare our separator as tabs instead of general whitespace. Otherwise,
+# each datetime record will represent two separate records.
+set datafile separator '\t'
+
+# We must indicate that the x axis is a datetime and declare the textual format
+set xdata time
+set timefmt "%Y-%m-%d %H:%M:%S"
+set xrange ['2020-09-19 00:00:00':'2020-10-04 12:00:00']
+set ylabel "Distance from sensor (inches)"
+
+# Plot the min, max, and average sewage depths on the same graph
+plot "lagoon.dat" using 1:2 title "Min Depth" with line, \
+     "lagoon.dat" using 1:3 title "Max Depth" with line, \
+     "lagoon.dat" using 1:4 title "Avg Depth" with line
